@@ -6,6 +6,7 @@ class Alien(Sprite):
     """
     单个外星人的类
     """
+
     def __init__(self, ai_settings, screen):
         """初始化外星人并设置位置"""
         super(Alien, self).__init__()
@@ -26,3 +27,10 @@ class Alien(Sprite):
     def blitme(self):
         """在指定位置绘制外星人"""
         self.screen.blit(self.image, self.rect)
+
+    def update(self):
+        """
+        向右移动外星人
+        """
+        self.x += self.ai_settings.alien_speed_factor
+        self.rect.x = self.x
